@@ -1,0 +1,120 @@
+Sure Sudeep! Let's break down **XPath** learning into **simple steps** and then move on to **basic and advanced examples**. XPath is used mainly to locate elements in XML/HTML documents — and it’s a must-know for automation testing (like with **Selenium** or **Appium**).
+
+---
+
+## ✅ **Step-by-Step: How to Learn XPath (Simplified)**
+
+### 🔹 Step 1: Understand Node Navigation
+
+* `//` → Select nodes **anywhere** in the document.  //tbody/tr
+* `/` → Selects nodes **immediately** under the current node.   ->   //tbody/tr
+* `..` → Go **one level up** (parent).   -> //tr/th[text()='Company']/..
+* `@` → Select attributes like `@id`, `@class`, etc.
+
+### 🔹 Step 2: Master XPath Axes
+
+Axes allow advanced navigation based on relationships:
+
+* `ancestor::` → All ancestors (parent, grandparent, etc.)
+* `descendant::` → All children, grandchildren, etc.
+normalize-space() -> function in XPath is used to remove leading and trailing spaces and replace multiple internal spaces with a single space.
+* `following-sibling::` → All siblings **after** the current node.
+* `preceding-sibling::` → All siblings **before** the current node.
+* `child::` → Direct child elements (same as `/`)
+* `parent::` → Parent element (same as `..`)
+
+---
+normalize-space(text)='text'
+(contain[@class, "testclass"])
+ancestor::
+contains
+
+//label[normalize-space()='Job Title']/following::div[contains(@class, 'oxd-select-text')][3]
+//label[normalize-space(text())='Employee Name']/following::div[contains(@class,"oxd-autocomplete-text-input oxd-autocomplete-text-input--active")][1]
+//label[normalize-space(text())='Employee Name']/following::div[1]//*[contains(@placeholder, "Type for hints")]
+//div[normalize-space(text())='01715']/ancestor::div[3]//div[@class="oxd-table-cell oxd-padding-cell"][4]
+//td[normalize-space(text())='Minerva Hooper']/../td[2]
+## ✅ **Simple Examples**
+
+### 1. Select all `<input>` elements:
+
+```xpath
+//input
+```
+
+### 2. Select `<input>` inside a form:
+
+```xpath
+//form/input
+```
+
+### 3. Select an element by ID:
+
+```xpath
+//*[@id='login-button']
+```
+
+### 4. Select an element by attribute (e.g., type="text"):
+
+```xpath
+//input[@type='text']
+```
+
+### 5. Go to parent of an element:
+
+```xpath
+//input[@type='submit']/..
+```
+
+---
+
+## ✅ **Advanced Examples (Using XPath Axes)**
+
+### 1. Get **ancestor div** of an input field:
+
+```xpath
+//input[@name='email']/ancestor::div
+```
+
+### 2. Get **all descendants** of a section:
+
+```xpath
+//section[@id='main']/descendant::*
+```
+
+### 3. Get **following-sibling** of an h2 tag:
+
+```xpath
+//h2[text()='Login']/following-sibling::p
+```
+
+### 4. Select the **label** element whose **input** is a child:
+
+```xpath
+//label[child::input]
+```
+
+### 5. Get the **first button** inside a form:
+
+```xpath
+//form//button[1]
+```
+
+### 6. Select an input where value contains partial text:
+
+```xpath
+//input[contains(@value, 'Log')]
+```
+
+---
+
+## ✅ Tips to Practice
+
+* Use **Chrome DevTools** → Inspect Element → Use `$x("your_xpath")` in Console
+* Try in **selectorshub** or **ChroPath** browser extensions
+* Use **Appium Inspector** or **UIAutomatorViewer** for mobile apps
+
+---
+
+If you'd like, I can generate a small HTML file for you to practice these examples interactively. Want that?
+
